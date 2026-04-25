@@ -1,0 +1,32 @@
+{
+  "project_id": "project_demo",
+  "floorplan": {
+    "width": 1800,
+    "height": 1200,
+    "coordinate_system": "normalized_image_pixels"
+  },
+  "images": [
+    {
+      "image_id": "kitchen_001.jpg",
+      "room": "Kitchen",
+      "camera": {
+        "position": { "x": 812, "y": 455 },
+        "orientation_degrees": 315,
+        "direction_vector": { "dx": 0.71, "dy": -0.71 },
+        "field_of_view_degrees": 78,
+        "height_estimate": "standing_eye_level"
+      },
+      "perspective_description": "Wide-angle view from the kitchen area looking diagonally toward the living room.",
+      "visible_elements": ["island", "cabinets"],
+      "confidence": 0.76,
+      "alternates": [
+        {
+          "position": { "x": 760, "y": 490 },
+          "orientation_degrees": 300,
+          "confidence": 0.64
+        }
+      ],
+      "uncertainty_reasons": []
+    }
+  ]
+}

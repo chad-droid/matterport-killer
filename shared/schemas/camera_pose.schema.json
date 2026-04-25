@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProjectOutput",
+  "type": "object",
+  "required": ["project_id", "floorplan", "images"],
+  "properties": {
+    "project_id": { "type": "string" },
+    "floorplan": {
+      "type": "object",
+      "required": ["width", "height", "coordinate_system"],
+      "properties": {
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "coordinate_system": { "type": "string" }
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["image_id", "room", "camera", "confidence", "perspective_description", "alternates", "uncertainty_reasons"],
+        "properties": {
+          "image_id": { "type": "string" },
+          "room": { "type": "string" },
+          "camera": {
+            "type": "object",
+            "required": ["position", "orientation_degrees", "direction_vector", "field_of_view_degrees"],
+            "properties": {
+              "position": {
+                "type": "object",
+                "required": ["x", "y"],
+                "properties": { "x": { "type": "number" }, "y": { "type": "number" } }
+              },
+              "orientation_degrees": { "type": "number" },
+              "direction_vector": {
+                "type": "object",
+                "required": ["dx", "dy"],
+                "properties": { "dx": { "type": "number" }, "dy": { "type": "number" } }
+              },
+              "field_of_view_degrees": { "type": "number" }
+            }
+          },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "perspective_description": { "type": "string" },
+          "alternates": { "type": "array" },
+          "uncertainty_reasons": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}
